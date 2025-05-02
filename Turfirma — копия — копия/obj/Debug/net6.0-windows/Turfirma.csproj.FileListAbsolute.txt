@@ -1,0 +1,67 @@
+Z:\Разработка ПО\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.exe
+Z:\Разработка ПО\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.deps.json
+Z:\Разработка ПО\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.runtimeconfig.json
+Z:\Разработка ПО\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.dll
+Z:\Разработка ПО\Turfirma\Turfirma\bin\Debug\net6.0-windows\ref\Turfirma.dll
+Z:\Разработка ПО\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.pdb
+Z:\Разработка ПО\Turfirma\Turfirma\bin\Debug\net6.0-windows\Npgsql.dll
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.AssemblyReference.cache
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.GenerateResource.cache
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.AssemblyInfoInputs.cache
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.AssemblyInfo.cs
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.CoreCompileInputs.cache
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.CopyComplete
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.dll
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\ref\Turfirma.dll
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.pdb
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.genruntimeconfig.cache
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.exe
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.deps.json
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.runtimeconfig.json
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.dll
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.pdb
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\bin\Debug\net6.0-windows\Npgsql.dll
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.AssemblyReference.cache
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.GenerateResource.cache
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.GeneratedMSBuildEditorConfig.editorconfig
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.AssemblyInfoInputs.cache
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.AssemblyInfo.cs
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.CoreCompileInputs.cache
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.CopyComplete
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.dll
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\refint\Turfirma.dll
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.pdb
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.genruntimeconfig.cache
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\ref\Turfirma.dll
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.TurFirma.resources
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.TurFirma.resources
+Z:\Разработка ПО\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristsAdd.resources
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristsAdd.resources
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristsChange.resources
+G:\Visual Studio\Программы\Университетские\Разработка приложений в интегрированных средах\TurFirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristsDelete.resources
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.exe
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.deps.json
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.runtimeconfig.json
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.dll
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\bin\Debug\net6.0-windows\ref\Turfirma.dll
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\bin\Debug\net6.0-windows\Turfirma.pdb
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\bin\Debug\net6.0-windows\Npgsql.dll
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.AssemblyReference.cache
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.TurFirma.resources
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristsAdd.resources
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristsChange.resources
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristsDelete.resources
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.GenerateResource.cache
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.GeneratedMSBuildEditorConfig.editorconfig
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.AssemblyInfoInputs.cache
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.AssemblyInfo.cs
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.CoreCompileInputs.cache
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.csproj.CopyComplete
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.dll
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\ref\Turfirma.dll
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.pdb
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.genruntimeconfig.cache
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristInfoAdd.resources
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristInfoChange.resources
+Z:\Разработка приложений в интегрированных средах\Turfirma\Turfirma\obj\Debug\net6.0-windows\Turfirma.ModalFormTouristInfoDelete.resources
