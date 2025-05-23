@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormBookingsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormBookingsChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormBookingsDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormPaymentsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormPaymentsChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormPaymentsDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormSeasonsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormSeasonsChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormSeasonsDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormTouristInfoAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormTouristInfoChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormTouristInfoDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormTouristsAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormTouristsChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormTouristsDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormToursAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormToursChange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ModalFormToursDelete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
