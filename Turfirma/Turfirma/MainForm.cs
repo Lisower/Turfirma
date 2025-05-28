@@ -1,8 +1,8 @@
 using System;
 using System.Data;
 using System.Windows.Forms;
-using Npgsql; //Библиотека для работы с БД Postgres
-using ClosedXML.Excel; // Подключаем класс для работы с EXCEL
+using Npgsql; //ГЃГЁГЎГ«ГЁГ®ГІГҐГЄГ  Г¤Г«Гї Г°Г ГЎГ®ГІГ» Г± ГЃГ„ Postgres
+using ClosedXML.Excel; // ГЏГ®Г¤ГЄГ«ГѕГ·Г ГҐГ¬ ГЄГ«Г Г±Г± Г¤Г«Гї Г°Г ГЎГ®ГІГ» Г± EXCEL
 using System.Windows.Forms.DataVisualization.Charting;
 using System.Xml;
 
@@ -10,17 +10,16 @@ namespace Turfirma
 {
     public partial class TurFirma : Form
     {
-        //подключение к БД
+        //ГЇГ®Г¤ГЄГ«ГѕГ·ГҐГ­ГЁГҐ ГЄ ГЃГ„
         private NpgsqlConnection con;
         private string connString =
         "Host=127.0.0.1;Username=postgres;Password=postpass;Database=Tyr_Firma";
-        // "Host=127.0.0.1;Username=postgres;Password=Poisk2004;Database=Turfirma";
         public TurFirma()
         {
             InitializeComponent();
             con = new NpgsqlConnection(connString);
             con.Open();
-            loadTourists(); //Делаем выборку данных из таблицы tourists
+            loadTourists(); //Г„ГҐГ«Г ГҐГ¬ ГўГ»ГЎГ®Г°ГЄГі Г¤Г Г­Г­Г»Гµ ГЁГ§ ГІГ ГЎГ«ГЁГ¶Г» tourists
             loadTouristInfo();
             loadTours();
             loadSeasons();
@@ -32,82 +31,82 @@ namespace Turfirma
         private void loadTourists()
         {
             DataTable dt = new DataTable();
-            //Формируем запрос к БД (выборка данных)
+            //Г”Г®Г°Г¬ГЁГ°ГіГҐГ¬ Г§Г ГЇГ°Г®Г± ГЄ ГЃГ„ (ГўГ»ГЎГ®Г°ГЄГ  Г¤Г Г­Г­Г»Гµ)
             NpgsqlDataAdapter adap = new NpgsqlDataAdapter("SELECT * FROM Tourists", con);
             adap.Fill(dt);
-            //Отображаем данные в dataGridView1
+            //ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Гў dataGridView1
             dataGridViewTourists.DataSource = dt;
         }
         private void loadTouristInfo()
         {
             DataTable dt = new DataTable();
-            //Формируем запрос к БД (выборка данных)
+            //Г”Г®Г°Г¬ГЁГ°ГіГҐГ¬ Г§Г ГЇГ°Г®Г± ГЄ ГЃГ„ (ГўГ»ГЎГ®Г°ГЄГ  Г¤Г Г­Г­Г»Гµ)
             NpgsqlDataAdapter adap = new NpgsqlDataAdapter("SELECT * FROM TouristInfo", con);
             adap.Fill(dt);
-            //Отображаем данные в dataGridView1
+            //ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Гў dataGridView1
             dataGridViewTouristInfo.DataSource = dt;
         }
         private void loadTours()
         {
             DataTable dt = new DataTable();
-            //Формируем запрос к БД (выборка данных)
+            //Г”Г®Г°Г¬ГЁГ°ГіГҐГ¬ Г§Г ГЇГ°Г®Г± ГЄ ГЃГ„ (ГўГ»ГЎГ®Г°ГЄГ  Г¤Г Г­Г­Г»Гµ)
             NpgsqlDataAdapter adap = new NpgsqlDataAdapter("SELECT * FROM Tours", con);
             adap.Fill(dt);
-            //Отображаем данные в dataGridView1
+            //ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Гў dataGridView1
             dataGridViewTours.DataSource = dt;
         }
         private void loadSeasons()
         {
             DataTable dt = new DataTable();
-            //Формируем запрос к БД (выборка данных)
+            //Г”Г®Г°Г¬ГЁГ°ГіГҐГ¬ Г§Г ГЇГ°Г®Г± ГЄ ГЃГ„ (ГўГ»ГЎГ®Г°ГЄГ  Г¤Г Г­Г­Г»Гµ)
             NpgsqlDataAdapter adap = new NpgsqlDataAdapter("SELECT * FROM Seasons", con);
             adap.Fill(dt);
-            //Отображаем данные в dataGridView1
+            //ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Гў dataGridView1
             dataGridViewSeasons.DataSource = dt;
         }
         private void loadBookings()
         {
             DataTable dt = new DataTable();
-            //Формируем запрос к БД (выборка данных)
+            //Г”Г®Г°Г¬ГЁГ°ГіГҐГ¬ Г§Г ГЇГ°Г®Г± ГЄ ГЃГ„ (ГўГ»ГЎГ®Г°ГЄГ  Г¤Г Г­Г­Г»Гµ)
             NpgsqlDataAdapter adap = new NpgsqlDataAdapter("SELECT * FROM Bookings", con);
             adap.Fill(dt);
-            //Отображаем данные в dataGridView1
+            //ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Гў dataGridView1
             dataGridViewBookings.DataSource = dt;
         }
         private void loadPayments()
         {
             DataTable dt = new DataTable();
-            //Формируем запрос к БД (выборка данных)
+            //Г”Г®Г°Г¬ГЁГ°ГіГҐГ¬ Г§Г ГЇГ°Г®Г± ГЄ ГЃГ„ (ГўГ»ГЎГ®Г°ГЄГ  Г¤Г Г­Г­Г»Гµ)
             NpgsqlDataAdapter adap = new NpgsqlDataAdapter("SELECT * FROM Payments", con);
             adap.Fill(dt);
-            //Отображаем данные в dataGridView1
+            //ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Гў dataGridView1
             dataGridViewPayments.DataSource = dt;
         }
 
         private void buttonTouristsAdd_Click(object sender, EventArgs e)
         {
-            // Создаем экземпляр модального окна
+            // Г‘Г®Г§Г¤Г ГҐГ¬ ГЅГЄГ§ГҐГ¬ГЇГ«ГїГ° Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             ModalFormTouristsAdd modalForm = new ModalFormTouristsAdd(this.con);
-            // либо Modal modalForm = new Modal();
-            // Открываем модальное окно
+            // Г«ГЁГЎГ® Modal modalForm = new Modal();
+            // ГЋГІГЄГ°Г»ГўГ ГҐГ¬ Г¬Г®Г¤Г Г«ГјГ­Г®ГҐ Г®ГЄГ­Г®
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Турист добавлен!");
+                MessageBox.Show("Г’ГіГ°ГЁГ±ГІ Г¤Г®ГЎГ ГўГ«ГҐГ­!");
                 loadTourists();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Добавление туриста отменено");
+                MessageBox.Show("Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГІГіГ°ГЁГ±ГІГ  Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonTouristsChange_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewTourists.SelectedRows[0];
 
             ModalFormTouristsChange modalForm = new ModalFormTouristsChange(this.con, selectedRow);
@@ -115,19 +114,19 @@ namespace Turfirma
 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Турист изменён!");
+                MessageBox.Show("Г’ГіГ°ГЁГ±ГІ ГЁГ§Г¬ГҐГ­ВёГ­!");
                 loadTourists();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Изменение туриста отменено");
+                MessageBox.Show("Г€Г§Г¬ГҐГ­ГҐГ­ГЁГҐ ГІГіГ°ГЁГ±ГІГ  Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonTouristsDelete_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewTourists.SelectedRows[0];
 
             ModalFormTouristsDelete modalForm = new ModalFormTouristsDelete(this.con, selectedRow);
@@ -135,13 +134,13 @@ namespace Turfirma
 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Турист удалён!");
+                MessageBox.Show("Г’ГіГ°ГЁГ±ГІ ГіГ¤Г Г«ВёГ­!");
                 loadTourists();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Удаление туриста отменено");
+                MessageBox.Show("Г“Г¤Г Г«ГҐГ­ГЁГҐ ГІГіГ°ГЁГ±ГІГ  Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
@@ -150,43 +149,43 @@ namespace Turfirma
             ModalFormTouristInfoAdd modalForm = new ModalFormTouristInfoAdd(this.con);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о туристе добавлена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГІГіГ°ГЁГ±ГІГҐ Г¤Г®ГЎГ ГўГ«ГҐГ­Г !");
                 loadTouristInfo();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Добавление информации о туристе отменено");
+                MessageBox.Show("Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГІГіГ°ГЁГ±ГІГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonTouristInfoChange_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewTouristInfo.SelectedRows[0];
 
             ModalFormTouristInfoChange modalForm = new ModalFormTouristInfoChange(this.con, selectedRow);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о туристе изменена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГІГіГ°ГЁГ±ГІГҐ ГЁГ§Г¬ГҐГ­ГҐГ­Г !");
                 loadTouristInfo();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Изменение информации о туристе отменено");
+                MessageBox.Show("Г€Г§Г¬ГҐГ­ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГІГіГ°ГЁГ±ГІГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonTouristInfoDelete_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewTouristInfo.SelectedRows[0];
 
             ModalFormTouristInfoDelete modalForm = new ModalFormTouristInfoDelete(this.con, selectedRow);
@@ -194,13 +193,13 @@ namespace Turfirma
 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о туристе удалёна!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГІГіГ°ГЁГ±ГІГҐ ГіГ¤Г Г«ВёГ­Г !");
                 loadTouristInfo();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Удаление информации о туристе отменено");
+                MessageBox.Show("Г“Г¤Г Г«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГІГіГ°ГЁГ±ГІГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
@@ -209,43 +208,43 @@ namespace Turfirma
             ModalFormToursAdd modalForm = new ModalFormToursAdd(this.con);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о туре добавлена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГІГіГ°ГҐ Г¤Г®ГЎГ ГўГ«ГҐГ­Г !");
                 loadTours();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Добавление информации о туре отменено");
+                MessageBox.Show("Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГІГіГ°ГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonToursChange_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewTours.SelectedRows[0];
 
             ModalFormToursChange modalForm = new ModalFormToursChange(this.con, selectedRow);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о туре изменена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГІГіГ°ГҐ ГЁГ§Г¬ГҐГ­ГҐГ­Г !");
                 loadTours();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Изменение информации о туре отменено");
+                MessageBox.Show("Г€Г§Г¬ГҐГ­ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГІГіГ°ГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonToursDelete_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewTours.SelectedRows[0];
 
             ModalFormToursDelete modalForm = new ModalFormToursDelete(this.con, selectedRow);
@@ -253,13 +252,13 @@ namespace Turfirma
 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о туре удалёна!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГІГіГ°ГҐ ГіГ¤Г Г«ВёГ­Г !");
                 loadTours();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Удаление информации о туре отменено");
+                MessageBox.Show("Г“Г¤Г Г«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГІГіГ°ГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
@@ -268,43 +267,43 @@ namespace Turfirma
             ModalFormSeasonsAdd modalForm = new ModalFormSeasonsAdd(this.con);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о сезоне добавлена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® Г±ГҐГ§Г®Г­ГҐ Г¤Г®ГЎГ ГўГ«ГҐГ­Г !");
                 loadSeasons();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Добавление информации о сезоне отменено");
+                MessageBox.Show("Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® Г±ГҐГ§Г®Г­ГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonSeasonsChange_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewSeasons.SelectedRows[0];
 
             ModalFormSeasonsChange modalForm = new ModalFormSeasonsChange(this.con, selectedRow);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о сезоне изменена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® Г±ГҐГ§Г®Г­ГҐ ГЁГ§Г¬ГҐГ­ГҐГ­Г !");
                 loadSeasons();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Изменение информации о сезоне отменено");
+                MessageBox.Show("Г€Г§Г¬ГҐГ­ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® Г±ГҐГ§Г®Г­ГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonSeasonsDelete_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewSeasons.SelectedRows[0];
 
             ModalFormSeasonsDelete modalForm = new ModalFormSeasonsDelete(this.con, selectedRow);
@@ -312,13 +311,13 @@ namespace Turfirma
 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о сезоне удалёна!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® Г±ГҐГ§Г®Г­ГҐ ГіГ¤Г Г«ВёГ­Г !");
                 loadSeasons();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Удаление информации о сезоне отменено");
+                MessageBox.Show("Г“Г¤Г Г«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® Г±ГҐГ§Г®Г­ГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
@@ -327,43 +326,43 @@ namespace Turfirma
             ModalFormBookingsAdd modalForm = new ModalFormBookingsAdd(this.con);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о путёвке добавлена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГЇГіГІВёГўГЄГҐ Г¤Г®ГЎГ ГўГ«ГҐГ­Г !");
                 loadBookings();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Добавление информации о путёвке отменено");
+                MessageBox.Show("Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГЇГіГІВёГўГЄГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonBookingsChange_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewBookings.SelectedRows[0];
 
             ModalFormBookingsChange modalForm = new ModalFormBookingsChange(this.con, selectedRow);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о путёвке изменена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГЇГіГІВёГўГЄГҐ ГЁГ§Г¬ГҐГ­ГҐГ­Г !");
                 loadBookings();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Изменение информации о путёвке отменено");
+                MessageBox.Show("Г€Г§Г¬ГҐГ­ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГЇГіГІВёГўГЄГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonBookingsDelete_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewBookings.SelectedRows[0];
 
             ModalFormBookingsDelete modalForm = new ModalFormBookingsDelete(this.con, selectedRow);
@@ -371,13 +370,13 @@ namespace Turfirma
 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация о путёвке удалёна!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г® ГЇГіГІВёГўГЄГҐ ГіГ¤Г Г«ВёГ­Г !");
                 loadBookings();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Удаление информации о путёвке отменено");
+                MessageBox.Show("Г“Г¤Г Г«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г® ГЇГіГІВёГўГЄГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
@@ -386,43 +385,43 @@ namespace Turfirma
             ModalFormPaymentsAdd modalForm = new ModalFormPaymentsAdd(this.con);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация об оплате добавлена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г®ГЎ Г®ГЇГ«Г ГІГҐ Г¤Г®ГЎГ ГўГ«ГҐГ­Г !");
                 loadPayments();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Добавление информации об оплате отменено");
+                MessageBox.Show("Г„Г®ГЎГ ГўГ«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г®ГЎ Г®ГЇГ«Г ГІГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonPaymentsChange_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewPayments.SelectedRows[0];
 
             ModalFormPaymentsChange modalForm = new ModalFormPaymentsChange(this.con, selectedRow);
             DialogResult result = modalForm.ShowDialog();
 
-            // Обрабатываем результат после закрытия модального окна
+            // ГЋГЎГ°Г ГЎГ ГІГ»ГўГ ГҐГ¬ Г°ГҐГ§ГіГ«ГјГІГ ГІ ГЇГ®Г±Г«ГҐ Г§Г ГЄГ°Г»ГІГЁГї Г¬Г®Г¤Г Г«ГјГ­Г®ГЈГ® Г®ГЄГ­Г 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация об оплате изменена!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г®ГЎ Г®ГЇГ«Г ГІГҐ ГЁГ§Г¬ГҐГ­ГҐГ­Г !");
                 loadPayments();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Изменение информации об оплате отменено");
+                MessageBox.Show("Г€Г§Г¬ГҐГ­ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г®ГЎ Г®ГЇГ«Г ГІГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
         private void buttonPaymentsDelete_Click(object sender, EventArgs e)
         {
-            // Достаём выбранную строку для изменения
+            // Г„Г®Г±ГІГ ВёГ¬ ГўГ»ГЎГ°Г Г­Г­ГіГѕ Г±ГІГ°Г®ГЄГі Г¤Г«Гї ГЁГ§Г¬ГҐГ­ГҐГ­ГЁГї
             DataGridViewRow selectedRow = dataGridViewPayments.SelectedRows[0];
 
             ModalFormPaymentsDelete modalForm = new ModalFormPaymentsDelete(this.con, selectedRow);
@@ -430,13 +429,13 @@ namespace Turfirma
 
             if (result == DialogResult.OK)
             {
-                MessageBox.Show("Информация об оплате удалёна!");
+                MessageBox.Show("Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї Г®ГЎ Г®ГЇГ«Г ГІГҐ ГіГ¤Г Г«ВёГ­Г !");
                 loadPayments();
             }
 
             else if (result == DialogResult.Cancel)
             {
-                MessageBox.Show("Удаление информации об оплате отменено");
+                MessageBox.Show("Г“Г¤Г Г«ГҐГ­ГЁГҐ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ Г®ГЎ Г®ГЇГ«Г ГІГҐ Г®ГІГ¬ГҐГ­ГҐГ­Г®");
             }
         }
 
@@ -446,15 +445,15 @@ namespace Turfirma
             {
                 string sql = this.textBoxRequestsAgregation.Text;
                 DataTable dt = new DataTable();
-                //Формируем запрос к БД (выборка данных)
+                //Г”Г®Г°Г¬ГЁГ°ГіГҐГ¬ Г§Г ГЇГ°Г®Г± ГЄ ГЃГ„ (ГўГ»ГЎГ®Г°ГЄГ  Г¤Г Г­Г­Г»Гµ)
                 NpgsqlDataAdapter adap = new NpgsqlDataAdapter(sql, con);
                 adap.Fill(dt);
-                //Отображаем данные в dataGridView1
+                //ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Гў dataGridView1
                 dataGridViewRequests.DataSource = dt;
             }
             catch (Exception ex)
             {
-                string errorText = $"Произошла ошибка! {ex.Message}";
+                string errorText = $"ГЏГ°Г®ГЁГ§Г®ГёГ«Г  Г®ГёГЁГЎГЄГ ! {ex.Message}";
                 MessageBox.Show(errorText);
             }
         }
@@ -465,30 +464,30 @@ namespace Turfirma
             {
                 string sql = this.richTextBoxRequestsParameterized.Text;
                 DataTable dt = new DataTable();
-                //Формируем запрос к БД (выборка данных)
+                //Г”Г®Г°Г¬ГЁГ°ГіГҐГ¬ Г§Г ГЇГ°Г®Г± ГЄ ГЃГ„ (ГўГ»ГЎГ®Г°ГЄГ  Г¤Г Г­Г­Г»Гµ)
                 NpgsqlDataAdapter adap = new NpgsqlDataAdapter(sql, con);
                 adap.Fill(dt);
-                //Отображаем данные в dataGridView1
+                //ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Гў dataGridView1
                 dataGridViewRequests.DataSource = dt;
             }
             catch (Exception ex)
             {
-                string errorText = $"Произошла ошибка! {ex.Message}";
+                string errorText = $"ГЏГ°Г®ГЁГ§Г®ГёГ«Г  Г®ГёГЁГЎГЄГ ! {ex.Message}";
                 MessageBox.Show(errorText);
             }
         }
 
         private void loadRequests()
         {
-            comboBoxRequestsAgregation.Items.Add("Максимальная цена тура");
-            comboBoxRequestsAgregation.Items.Add("Средняя цена тура");
-            comboBoxRequestsAgregation.Items.Add("Количество туристов");
-            comboBoxRequestsAgregation.Items.Add("Свой запрос (напишите код ниже)");
+            comboBoxRequestsAgregation.Items.Add("ГЊГ ГЄГ±ГЁГ¬Г Г«ГјГ­Г Гї Г¶ГҐГ­Г  ГІГіГ°Г ");
+            comboBoxRequestsAgregation.Items.Add("Г‘Г°ГҐГ¤Г­ГїГї Г¶ГҐГ­Г  ГІГіГ°Г ");
+            comboBoxRequestsAgregation.Items.Add("ГЉГ®Г«ГЁГ·ГҐГ±ГІГўГ® ГІГіГ°ГЁГ±ГІГ®Гў");
+            comboBoxRequestsAgregation.Items.Add("Г‘ГўГ®Г© Г§Г ГЇГ°Г®Г± (Г­Г ГЇГЁГёГЁГІГҐ ГЄГ®Г¤ Г­ГЁГ¦ГҐ)");
             comboBoxRequestsAgregation.SelectedIndex = 3;
-            comboBoxRequestsParameterized.Items.Add("Туристы с туром, стоящим более 55000");
-            comboBoxRequestsParameterized.Items.Add("Cамые популярные туры (по кол-ву бронирований)");
-            comboBoxRequestsParameterized.Items.Add("Туристы, которые потратили больше всего денег");
-            comboBoxRequestsParameterized.Items.Add("Свой запрос (напишите код ниже)");
+            comboBoxRequestsParameterized.Items.Add("Г’ГіГ°ГЁГ±ГІГ» Г± ГІГіГ°Г®Г¬, Г±ГІГ®ГїГ№ГЁГ¬ ГЎГ®Г«ГҐГҐ 55000");
+            comboBoxRequestsParameterized.Items.Add("CГ Г¬Г»ГҐ ГЇГ®ГЇГіГ«ГїГ°Г­Г»ГҐ ГІГіГ°Г» (ГЇГ® ГЄГ®Г«-ГўГі ГЎГ°Г®Г­ГЁГ°Г®ГўГ Г­ГЁГ©)");
+            comboBoxRequestsParameterized.Items.Add("Г’ГіГ°ГЁГ±ГІГ», ГЄГ®ГІГ®Г°Г»ГҐ ГЇГ®ГІГ°Г ГІГЁГ«ГЁ ГЎГ®Г«ГјГёГҐ ГўГ±ГҐГЈГ® Г¤ГҐГ­ГҐГЈ");
+            comboBoxRequestsParameterized.Items.Add("Г‘ГўГ®Г© Г§Г ГЇГ°Г®Г± (Г­Г ГЇГЁГёГЁГІГҐ ГЄГ®Г¤ Г­ГЁГ¦ГҐ)");
             comboBoxRequestsParameterized.SelectedIndex = 3;
         }
 
@@ -555,7 +554,7 @@ namespace Turfirma
         }
         private void loadDiagrams()
         {
-            // Запрос для круговой диаграммы
+            // Г‡Г ГЇГ°Г®Г± Г¤Г«Гї ГЄГ°ГіГЈГ®ГўГ®Г© Г¤ГЁГ ГЈГ°Г Г¬Г¬Г»
             string sqlPie = "SELECT " +
                 "t.tourname, " +
                 "ROUND(COUNT(p.paymentid) * 100.0 / NULLIF(COUNT(b.bookingid), 0), 2) AS payment_percentage " +
@@ -573,9 +572,9 @@ namespace Turfirma
                 "ORDER BY " +
                 "payment_percentage DESC;";
 
-            // Круговая диаграмма
+            // ГЉГ°ГіГЈГ®ГўГ Гї Г¤ГЁГ ГЈГ°Г Г¬Г¬Г 
             Chart PieChart = new Chart();
-            PieChart.Titles.Add("Процент выкупа туров");
+            PieChart.Titles.Add("ГЏГ°Г®Г¶ГҐГ­ГІ ГўГ»ГЄГіГЇГ  ГІГіГ°Г®Гў");
             PieChart.Titles[0].Font = new Font("Arial", 12, FontStyle.Bold);
             PieChart.Location = new Point(10, 75);
             PieChart.Size = new Size(400, 400);
@@ -585,7 +584,7 @@ namespace Turfirma
             Series PieSeries = new Series("PaymentPercentage");
             PieSeries.ChartType = SeriesChartType.Pie;
 
-            // Заполнение данных
+            // Г‡Г ГЇГ®Г«Г­ГҐГ­ГЁГҐ Г¤Г Г­Г­Г»Гµ
             using (NpgsqlCommand cmdPie = new NpgsqlCommand(sqlPie, this.con))
             {
                 using (NpgsqlDataReader reader = cmdPie.ExecuteReader())
@@ -604,18 +603,18 @@ namespace Turfirma
             PieSeries.Font = new Font("Arial", 8);
             PieChart.Series.Add(PieSeries);
 
-            // Настройка легенды
+            // ГЌГ Г±ГІГ°Г®Г©ГЄГ  Г«ГҐГЈГҐГ­Г¤Г»
             Legend pieLegend = new Legend();
             pieLegend.Docking = Docking.Bottom;
             pieLegend.Alignment = StringAlignment.Center;
             pieLegend.Font = new Font("Arial", 8);
             PieChart.Legends.Add(pieLegend);
 
-            // 3D-эффект
+            // 3D-ГЅГґГґГҐГЄГІ
             PieChart.ChartAreas[0].Area3DStyle.Enable3D = true;
             PieChart.ChartAreas[0].Area3DStyle.Inclination = 60;
 
-            // Запрос для столбчатой диаграммы
+            // Г‡Г ГЇГ°Г®Г± Г¤Г«Гї Г±ГІГ®Г«ГЎГ·Г ГІГ®Г© Г¤ГЁГ ГЈГ°Г Г¬Г¬Г»
             string sqlBar = "SELECT " +
                 "t.tourname, " +
                 "COALESCE(SUM(p.amount::numeric), 0) AS total_payments " +
@@ -632,9 +631,9 @@ namespace Turfirma
                 "ORDER BY " +
                 "total_payments DESC;";
 
-            // Столбчатая диаграмма
+            // Г‘ГІГ®Г«ГЎГ·Г ГІГ Гї Г¤ГЁГ ГЈГ°Г Г¬Г¬Г 
             Chart BarChart = new Chart();
-            BarChart.Titles.Add("Сумма выкупа туров");
+            BarChart.Titles.Add("Г‘ГіГ¬Г¬Г  ГўГ»ГЄГіГЇГ  ГІГіГ°Г®Гў");
             BarChart.Titles[0].Font = new Font("Arial", 12, FontStyle.Bold);
             BarChart.Location = new Point(400, 75);
             BarChart.Size = new Size(400, 400);
@@ -644,9 +643,9 @@ namespace Turfirma
             Series BarSeries = new Series("TotalPayments");
             BarSeries.ChartType = SeriesChartType.Column;
             BarSeries.IsValueShownAsLabel = true;
-            BarSeries.LabelFormat = "C2"; // Формат валюты
+            BarSeries.LabelFormat = "C2"; // Г”Г®Г°Г¬Г ГІ ГўГ Г«ГѕГІГ»
 
-            // Заполнение данных для столбчатой диаграммы
+            // Г‡Г ГЇГ®Г«Г­ГҐГ­ГЁГҐ Г¤Г Г­Г­Г»Гµ Г¤Г«Гї Г±ГІГ®Г«ГЎГ·Г ГІГ®Г© Г¤ГЁГ ГЈГ°Г Г¬Г¬Г»
             using (NpgsqlCommand cmdBar = new NpgsqlCommand(sqlBar, this.con))
             {
                 using (NpgsqlDataReader reader = cmdBar.ExecuteReader())
@@ -663,12 +662,12 @@ namespace Turfirma
             BarChart.Series.Add(BarSeries);
             BarChart.ChartAreas[0].AxisX.MajorGrid.Enabled = false;
 
-            // Настройка внешнего вида столбчатой диаграммы
+            // ГЌГ Г±ГІГ°Г®Г©ГЄГ  ГўГ­ГҐГёГ­ГҐГЈГ® ГўГЁГ¤Г  Г±ГІГ®Г«ГЎГ·Г ГІГ®Г© Г¤ГЁГ ГЈГ°Г Г¬Г¬Г»
             BarChart.ChartAreas[0].AxisX.LabelStyle.Angle = -45;
             BarChart.ChartAreas[0].AxisX.LabelStyle.Font = new Font("Arial", 8);
             BarChart.ChartAreas[0].AxisY.LabelStyle.Format = "C0";
-            BarChart.ChartAreas[0].AxisY.Title = "Сумма";
-            BarChart.ChartAreas[0].AxisX.Title = "Тур";
+            BarChart.ChartAreas[0].AxisY.Title = "Г‘ГіГ¬Г¬Г ";
+            BarChart.ChartAreas[0].AxisX.Title = "Г’ГіГ°";
         }
 
         private void buttonExportExcel_Click(object sender, EventArgs e)
@@ -676,34 +675,34 @@ namespace Turfirma
 
             try
             {
-                // Проверяем, есть ли данные в dataGridView
+                // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, ГҐГ±ГІГј Г«ГЁ Г¤Г Г­Г­Г»ГҐ Гў dataGridView
                 if (dataGridViewRequests.Rows.Count == 0)
                 {
-                    MessageBox.Show("Нет данных для экспорта!", "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("ГЌГҐГІ Г¤Г Г­Г­Г»Гµ Г¤Г«Гї ГЅГЄГ±ГЇГ®Г°ГІГ !", "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
-                // Создаем диалог сохранения файла
+                // Г‘Г®Г§Г¤Г ГҐГ¬ Г¤ГЁГ Г«Г®ГЈ Г±Г®ГµГ°Г Г­ГҐГ­ГЁГї ГґГ Г©Г«Г 
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "Excel Files|*.xlsx";
-                saveFileDialog.Title = "Сохранить Excel файл";
-                saveFileDialog.FileName = "Экспорт данных.xlsx";
+                saveFileDialog.Title = "Г‘Г®ГµГ°Г Г­ГЁГІГј Excel ГґГ Г©Г«";
+                saveFileDialog.FileName = "ГќГЄГ±ГЇГ®Г°ГІ Г¤Г Г­Г­Г»Гµ.xlsx";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Создаем новую книгу Excel
+                    // Г‘Г®Г§Г¤Г ГҐГ¬ Г­Г®ГўГіГѕ ГЄГ­ГЁГЈГі Excel
                     using (var workbook = new XLWorkbook())
                     {
-                        // Добавляем лист в книгу
-                        var worksheet = workbook.Worksheets.Add("Экспорт данных");
+                        // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ Г«ГЁГ±ГІ Гў ГЄГ­ГЁГЈГі
+                        var worksheet = workbook.Worksheets.Add("ГќГЄГ±ГЇГ®Г°ГІ Г¤Г Г­Г­Г»Гµ");
 
-                        // Записываем заголовки столбцов
+                        // Г‡Г ГЇГЁГ±Г»ГўГ ГҐГ¬ Г§Г ГЈГ®Г«Г®ГўГЄГЁ Г±ГІГ®Г«ГЎГ¶Г®Гў
                         for (int i = 0; i < dataGridViewRequests.Columns.Count; i++)
                         {
                             worksheet.Cell(1, i + 1).Value = dataGridViewRequests.Columns[i].HeaderText;
                         }
 
-                        // Записываем данные
+                        // Г‡Г ГЇГЁГ±Г»ГўГ ГҐГ¬ Г¤Г Г­Г­Г»ГҐ
                         for (int i = 0; i < dataGridViewRequests.Rows.Count; i++)
                         {
                             for (int j = 0; j < dataGridViewRequests.Columns.Count; j++)
@@ -712,20 +711,20 @@ namespace Turfirma
                             }
                         }
 
-                        // Автонастройка ширины столбцов
+                        // ГЂГўГІГ®Г­Г Г±ГІГ°Г®Г©ГЄГ  ГёГЁГ°ГЁГ­Г» Г±ГІГ®Г«ГЎГ¶Г®Гў
                         worksheet.Columns().AdjustToContents();
 
-                        // Сохраняем книгу
+                        // Г‘Г®ГµГ°Г Г­ГїГҐГ¬ ГЄГ­ГЁГЈГі
                         workbook.SaveAs(saveFileDialog.FileName);
 
-                        MessageBox.Show("Данные успешно экспортированы в Excel!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Г„Г Г­Г­Г»ГҐ ГіГ±ГЇГҐГёГ­Г® ГЅГЄГ±ГЇГ®Г°ГІГЁГ°Г®ГўГ Г­Г» Гў Excel!", "Г“Г±ГЇГҐГµ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             catch (Exception ex)
             {
-                string errorText = $"Произошла ошибка при экспорте в Excel! {ex.Message}";
-                MessageBox.Show(errorText, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string errorText = $"ГЏГ°Г®ГЁГ§Г®ГёГ«Г  Г®ГёГЁГЎГЄГ  ГЇГ°ГЁ ГЅГЄГ±ГЇГ®Г°ГІГҐ Гў Excel! {ex.Message}";
+                MessageBox.Show(errorText, "ГЋГёГЁГЎГЄГ ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -733,38 +732,38 @@ namespace Turfirma
         {
             try
             {
-                // Создаем диалог открытия файла
+                // Г‘Г®Г§Г¤Г ГҐГ¬ Г¤ГЁГ Г«Г®ГЈ Г®ГІГЄГ°Г»ГІГЁГї ГґГ Г©Г«Г 
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "Excel Files|*.xlsx;*.xls";
-                openFileDialog.Title = "Выберите Excel файл";
+                openFileDialog.Title = "Г‚Г»ГЎГҐГ°ГЁГІГҐ Excel ГґГ Г©Г«";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Загружаем книгу Excel
+                    // Г‡Г ГЈГ°ГіГ¦Г ГҐГ¬ ГЄГ­ГЁГЈГі Excel
                     using (var workbook = new XLWorkbook(openFileDialog.FileName))
                     {
-                        // Получаем первый лист (можно изменить, если нужно выбрать конкретный лист)
+                        // ГЏГ®Г«ГіГ·Г ГҐГ¬ ГЇГҐГ°ГўГ»Г© Г«ГЁГ±ГІ (Г¬Г®Г¦Г­Г® ГЁГ§Г¬ГҐГ­ГЁГІГј, ГҐГ±Г«ГЁ Г­ГіГ¦Г­Г® ГўГ»ГЎГ°Г ГІГј ГЄГ®Г­ГЄГ°ГҐГІГ­Г»Г© Г«ГЁГ±ГІ)
                         var worksheet = workbook.Worksheet(1);
 
-                        // Создаем DataTable для хранения данных
+                        // Г‘Г®Г§Г¤Г ГҐГ¬ DataTable Г¤Г«Гї ГµГ°Г Г­ГҐГ­ГЁГї Г¤Г Г­Г­Г»Гµ
                         DataTable dt = new DataTable();
 
-                        // Определяем диапазон данных (можно использовать и другие способы)
+                        // ГЋГЇГ°ГҐГ¤ГҐГ«ГїГҐГ¬ Г¤ГЁГ ГЇГ Г§Г®Г­ Г¤Г Г­Г­Г»Гµ (Г¬Г®Г¦Г­Г® ГЁГ±ГЇГ®Г«ГјГ§Г®ГўГ ГІГј ГЁ Г¤Г°ГіГЈГЁГҐ Г±ГЇГ®Г±Г®ГЎГ»)
                         var range = worksheet.RangeUsed();
                         if (range == null)
                         {
-                            MessageBox.Show("В выбранном файле нет данных!", "Информация",
+                            MessageBox.Show("Г‚ ГўГ»ГЎГ°Г Г­Г­Г®Г¬ ГґГ Г©Г«ГҐ Г­ГҐГІ Г¤Г Г­Г­Г»Гµ!", "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї",
                                          MessageBoxButtons.OK, MessageBoxIcon.Information);
                             return;
                         }
 
-                        // Читаем заголовки столбцов (первая строка)
+                        // Г—ГЁГІГ ГҐГ¬ Г§Г ГЈГ®Г«Г®ГўГЄГЁ Г±ГІГ®Г«ГЎГ¶Г®Гў (ГЇГҐГ°ГўГ Гї Г±ГІГ°Г®ГЄГ )
                         foreach (var cell in range.Row(1).Cells())
                         {
                             dt.Columns.Add(cell.Value.ToString());
                         }
 
-                        // Читаем данные (начиная со второй строки)
+                        // Г—ГЁГІГ ГҐГ¬ Г¤Г Г­Г­Г»ГҐ (Г­Г Г·ГЁГ­Г Гї Г±Г® ГўГІГ®Г°Г®Г© Г±ГІГ°Г®ГЄГЁ)
                         for (int row = 2; row <= range.RowCount(); row++)
                         {
                             DataRow dr = dt.NewRow();
@@ -775,18 +774,18 @@ namespace Turfirma
                             dt.Rows.Add(dr);
                         }
 
-                        // Отображаем данные в dataGridView
+                        // ГЋГІГ®ГЎГ°Г Г¦Г ГҐГ¬ Г¤Г Г­Г­Г»ГҐ Гў dataGridView
                         dataGridViewRequests.DataSource = dt;
 
-                        MessageBox.Show("Данные успешно импортированы из Excel!", "Успех",
+                        MessageBox.Show("Г„Г Г­Г­Г»ГҐ ГіГ±ГЇГҐГёГ­Г® ГЁГ¬ГЇГ®Г°ГІГЁГ°Г®ГўГ Г­Г» ГЁГ§ Excel!", "Г“Г±ГЇГҐГµ",
                                       MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
             }
             catch (Exception ex)
             {
-                string errorText = $"Произошла ошибка при импорте из Excel! {ex.Message}";
-                MessageBox.Show(errorText, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string errorText = $"ГЏГ°Г®ГЁГ§Г®ГёГ«Г  Г®ГёГЁГЎГЄГ  ГЇГ°ГЁ ГЁГ¬ГЇГ®Г°ГІГҐ ГЁГ§ Excel! {ex.Message}";
+                MessageBox.Show(errorText, "ГЋГёГЁГЎГЄГ ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
@@ -795,36 +794,36 @@ namespace Turfirma
         {
             try
             {
-                // Проверяем, есть ли данные в dataGridView
+                // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, ГҐГ±ГІГј Г«ГЁ Г¤Г Г­Г­Г»ГҐ Гў dataGridView
                 if (dataGridViewRequests.Rows.Count == 0)
                 {
-                    MessageBox.Show("Нет данных для экспорта!", "Информация",
+                    MessageBox.Show("ГЌГҐГІ Г¤Г Г­Г­Г»Гµ Г¤Г«Гї ГЅГЄГ±ГЇГ®Г°ГІГ !", "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
-                // Создаем диалог сохранения файла
+                // Г‘Г®Г§Г¤Г ГҐГ¬ Г¤ГЁГ Г«Г®ГЈ Г±Г®ГµГ°Г Г­ГҐГ­ГЁГї ГґГ Г©Г«Г 
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "XML Files|*.xml";
-                saveFileDialog.Title = "Сохранить XML файл";
-                saveFileDialog.FileName = "Экспорт данных.xml";
+                saveFileDialog.Title = "Г‘Г®ГµГ°Г Г­ГЁГІГј XML ГґГ Г©Г«";
+                saveFileDialog.FileName = "ГќГЄГ±ГЇГ®Г°ГІ Г¤Г Г­Г­Г»Гµ.xml";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    // Настройки для XmlWriter
+                    // ГЌГ Г±ГІГ°Г®Г©ГЄГЁ Г¤Г«Гї XmlWriter
                     XmlWriterSettings settings = new XmlWriterSettings();
                     settings.Indent = true;
                     settings.IndentChars = "  ";
                     settings.NewLineChars = "\n";
                     settings.OmitXmlDeclaration = false;
 
-                    // Создаем XmlWriter
+                    // Г‘Г®Г§Г¤Г ГҐГ¬ XmlWriter
                     using (XmlWriter writer = XmlWriter.Create(saveFileDialog.FileName, settings))
                     {
                         writer.WriteStartDocument();
                         writer.WriteStartElement("Data");
 
-                        // Записываем заголовки столбцов как атрибуты
+                        // Г‡Г ГЇГЁГ±Г»ГўГ ГҐГ¬ Г§Г ГЈГ®Г«Г®ГўГЄГЁ Г±ГІГ®Г«ГЎГ¶Г®Гў ГЄГ ГЄ Г ГІГ°ГЁГЎГіГІГ»
                         writer.WriteStartElement("Columns");
                         foreach (DataGridViewColumn column in dataGridViewRequests.Columns)
                         {
@@ -832,11 +831,11 @@ namespace Turfirma
                         }
                         writer.WriteEndElement(); // Columns
 
-                        // Записываем данные
+                        // Г‡Г ГЇГЁГ±Г»ГўГ ГҐГ¬ Г¤Г Г­Г­Г»ГҐ
                         writer.WriteStartElement("Rows");
                         foreach (DataGridViewRow row in dataGridViewRequests.Rows)
                         {
-                            if (!row.IsNewRow) // Пропускаем новую строку (если есть)
+                            if (!row.IsNewRow) // ГЏГ°Г®ГЇГіГ±ГЄГ ГҐГ¬ Г­Г®ГўГіГѕ Г±ГІГ°Г®ГЄГі (ГҐГ±Г«ГЁ ГҐГ±ГІГј)
                             {
                                 writer.WriteStartElement("Row");
                                 for (int i = 0; i < dataGridViewRequests.Columns.Count; i++)
@@ -855,14 +854,14 @@ namespace Turfirma
                         writer.WriteEndDocument();
                     }
 
-                    MessageBox.Show("Данные успешно экспортированы в XML!", "Успех",
+                    MessageBox.Show("Г„Г Г­Г­Г»ГҐ ГіГ±ГЇГҐГёГ­Г® ГЅГЄГ±ГЇГ®Г°ГІГЁГ°Г®ГўГ Г­Г» Гў XML!", "Г“Г±ГЇГҐГµ",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                string errorText = $"Произошла ошибка при экспорте в XML! {ex.Message}";
-                MessageBox.Show(errorText, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string errorText = $"ГЏГ°Г®ГЁГ§Г®ГёГ«Г  Г®ГёГЁГЎГЄГ  ГЇГ°ГЁ ГЅГЄГ±ГЇГ®Г°ГІГҐ Гў XML! {ex.Message}";
+                MessageBox.Show(errorText, "ГЋГёГЁГЎГЄГ ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -872,7 +871,7 @@ namespace Turfirma
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "XML Files|*.xml";
-                openFileDialog.Title = "Выберите XML файл";
+                openFileDialog.Title = "Г‚Г»ГЎГҐГ°ГЁГІГҐ XML ГґГ Г©Г«";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -895,7 +894,7 @@ namespace Turfirma
                                     case "Column":
                                         if (reader.Read())
                                         {
-                                            // Создаем колонку при первом упоминании
+                                            // Г‘Г®Г§Г¤Г ГҐГ¬ ГЄГ®Г«Г®Г­ГЄГі ГЇГ°ГЁ ГЇГҐГ°ГўГ®Г¬ ГіГЇГ®Г¬ГЁГ­Г Г­ГЁГЁ
                                             if (!dt.Columns.Contains(reader.Value))
                                             {
                                                 dt.Columns.Add(reader.Value);
@@ -914,7 +913,7 @@ namespace Turfirma
                                             string columnName = reader.GetAttribute("Column");
                                             if (reader.Read())
                                             {
-                                                // Добавляем колонку, если её ещё нет
+                                                // Г„Г®ГЎГ ГўГ«ГїГҐГ¬ ГЄГ®Г«Г®Г­ГЄГі, ГҐГ±Г«ГЁ ГҐВё ГҐГ№Вё Г­ГҐГІ
                                                 if (!dt.Columns.Contains(columnName))
                                                 {
                                                     dt.Columns.Add(columnName);
@@ -938,22 +937,22 @@ namespace Turfirma
                         }
                     }
 
-                    // Проверяем, есть ли данные
+                    // ГЏГ°Г®ГўГҐГ°ГїГҐГ¬, ГҐГ±ГІГј Г«ГЁ Г¤Г Г­Г­Г»ГҐ
                     if (dt.Rows.Count == 0)
                     {
-                        MessageBox.Show("XML файл не содержит данных или имеет неправильный формат",
-                                      "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("XML ГґГ Г©Г« Г­ГҐ Г±Г®Г¤ГҐГ°Г¦ГЁГІ Г¤Г Г­Г­Г»Гµ ГЁГ«ГЁ ГЁГ¬ГҐГҐГІ Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г»Г© ГґГ®Г°Г¬Г ГІ",
+                                      "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
                     dataGridViewRequests.DataSource = dt;
-                    MessageBox.Show($"Данные успешно импортированы из XML!", "Успех",
+                    MessageBox.Show($"Г„Г Г­Г­Г»ГҐ ГіГ±ГЇГҐГёГ­Г® ГЁГ¬ГЇГ®Г°ГІГЁГ°Г®ГўГ Г­Г» ГЁГ§ XML!", "Г“Г±ГЇГҐГµ",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Произошла ошибка при импорте из XML! {ex.Message}", "Ошибка",
+                MessageBox.Show($"ГЏГ°Г®ГЁГ§Г®ГёГ«Г  Г®ГёГЁГЎГЄГ  ГЇГ°ГЁ ГЁГ¬ГЇГ®Г°ГІГҐ ГЁГ§ XML! {ex.Message}", "ГЋГёГЁГЎГЄГ ",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -964,15 +963,15 @@ namespace Turfirma
             {
                 if (dataGridViewRequests.Rows.Count == 0)
                 {
-                    MessageBox.Show("Нет данных для экспорта!", "Информация",
+                    MessageBox.Show("ГЌГҐГІ Г¤Г Г­Г­Г»Гµ Г¤Г«Гї ГЅГЄГ±ГЇГ®Г°ГІГ !", "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
                 SaveFileDialog saveFileDialog = new SaveFileDialog();
                 saveFileDialog.Filter = "XML Files|*.xml";
-                saveFileDialog.Title = "Сохранить XML файл";
-                saveFileDialog.FileName = "Экспорт данных.xml";
+                saveFileDialog.Title = "Г‘Г®ГµГ°Г Г­ГЁГІГј XML ГґГ Г©Г«";
+                saveFileDialog.FileName = "ГќГЄГ±ГЇГ®Г°ГІ Г¤Г Г­Г­Г»Гµ.xml";
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -983,7 +982,7 @@ namespace Turfirma
                     XmlElement rootElement = xmlDoc.CreateElement("Data");
                     xmlDoc.AppendChild(rootElement);
 
-                    // Экспорт заголовков
+                    // ГќГЄГ±ГЇГ®Г°ГІ Г§Г ГЈГ®Г«Г®ГўГЄГ®Гў
                     XmlElement columnsElement = xmlDoc.CreateElement("Columns");
                     foreach (DataGridViewColumn column in dataGridViewRequests.Columns)
                     {
@@ -993,7 +992,7 @@ namespace Turfirma
                     }
                     rootElement.AppendChild(columnsElement);
 
-                    // Экспорт данных
+                    // ГќГЄГ±ГЇГ®Г°ГІ Г¤Г Г­Г­Г»Гµ
                     XmlElement rowsElement = xmlDoc.CreateElement("Rows");
                     foreach (DataGridViewRow row in dataGridViewRequests.Rows)
                     {
@@ -1013,13 +1012,13 @@ namespace Turfirma
                     rootElement.AppendChild(rowsElement);
 
                     xmlDoc.Save(saveFileDialog.FileName);
-                    MessageBox.Show($"Данные успешно экспортированы в XML!", "Успех",
+                    MessageBox.Show($"Г„Г Г­Г­Г»ГҐ ГіГ±ГЇГҐГёГ­Г® ГЅГЄГ±ГЇГ®Г°ГІГЁГ°Г®ГўГ Г­Г» Гў XML!", "Г“Г±ГЇГҐГµ",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Произошла ошибка при экспорте в XML! {ex.Message}", "Ошибка",
+                MessageBox.Show($"ГЏГ°Г®ГЁГ§Г®ГёГ«Г  Г®ГёГЁГЎГЄГ  ГЇГ°ГЁ ГЅГЄГ±ГЇГ®Г°ГІГҐ Гў XML! {ex.Message}", "ГЋГёГЁГЎГЄГ ",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1030,7 +1029,7 @@ namespace Turfirma
             {
                 OpenFileDialog openFileDialog = new OpenFileDialog();
                 openFileDialog.Filter = "XML Files|*.xml";
-                openFileDialog.Title = "Выберите XML файл";
+                openFileDialog.Title = "Г‚Г»ГЎГҐГ°ГЁГІГҐ XML ГґГ Г©Г«";
 
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
@@ -1038,7 +1037,7 @@ namespace Turfirma
                     XmlDocument xmlDoc = new XmlDocument();
                     xmlDoc.Load(openFileDialog.FileName);
 
-                    // Загрузка структуры колонок
+                    // Г‡Г ГЈГ°ГіГ§ГЄГ  Г±ГІГ°ГіГЄГІГіГ°Г» ГЄГ®Г«Г®Г­Г®ГЄ
                     XmlNodeList columnNodes = xmlDoc.SelectNodes("/Data/Columns/Column");
                     foreach (XmlNode columnNode in columnNodes)
                     {
@@ -1048,7 +1047,7 @@ namespace Turfirma
                         }
                     }
 
-                    // Загрузка данных
+                    // Г‡Г ГЈГ°ГіГ§ГЄГ  Г¤Г Г­Г­Г»Гµ
                     XmlNodeList rowNodes = xmlDoc.SelectNodes("/Data/Rows/Row");
                     foreach (XmlNode rowNode in rowNodes)
                     {
@@ -1067,19 +1066,19 @@ namespace Turfirma
 
                     if (dt.Rows.Count == 0)
                     {
-                        MessageBox.Show("XML файл не содержит данных или имеет неправильный формат",
-                                      "Информация", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("XML ГґГ Г©Г« Г­ГҐ Г±Г®Г¤ГҐГ°Г¦ГЁГІ Г¤Г Г­Г­Г»Гµ ГЁГ«ГЁ ГЁГ¬ГҐГҐГІ Г­ГҐГЇГ°Г ГўГЁГ«ГјГ­Г»Г© ГґГ®Г°Г¬Г ГІ",
+                                      "Г€Г­ГґГ®Г°Г¬Г Г¶ГЁГї", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         return;
                     }
 
                     dataGridViewRequests.DataSource = dt;
-                    MessageBox.Show($"Данные успешно импортированы из XML!", "Успех",
+                    MessageBox.Show($"Г„Г Г­Г­Г»ГҐ ГіГ±ГЇГҐГёГ­Г® ГЁГ¬ГЇГ®Г°ГІГЁГ°Г®ГўГ Г­Г» ГЁГ§ XML!", "Г“Г±ГЇГҐГµ",
                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Произошла ошибка при импорте из XML! {ex.Message}", "Ошибка",
+                MessageBox.Show($"ГЏГ°Г®ГЁГ§Г®ГёГ«Г  Г®ГёГЁГЎГЄГ  ГЇГ°ГЁ ГЁГ¬ГЇГ®Г°ГІГҐ ГЁГ§ XML! {ex.Message}", "ГЋГёГЁГЎГЄГ ",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -1088,31 +1087,31 @@ namespace Turfirma
         {
             try
             {
-                // Вставляем тестовую запись в таблицу Tourists
+                // Г‚Г±ГІГ ГўГ«ГїГҐГ¬ ГІГҐГ±ГІГ®ГўГіГѕ Г§Г ГЇГЁГ±Гј Гў ГІГ ГЎГ«ГЁГ¶Гі Tourists
                 string insertQuery = "INSERT INTO Tourists (LastName, FirstName, MiddleName) " +
-                                    "VALUES ('Тестовый', 'Клиент', 'Триггерович') RETURNING TouristID";
+                                    "VALUES ('Г’ГҐГ±ГІГ®ГўГ»Г©', 'ГЉГ«ГЁГҐГ­ГІ', 'Г’Г°ГЁГЈГЈГҐГ°Г®ГўГЁГ·') RETURNING TouristID";
 
                 using (NpgsqlCommand cmd = new NpgsqlCommand(insertQuery, con))
                 {
-                    // Выполняем запрос и получаем ID нового туриста
+                    // Г‚Г»ГЇГ®Г«Г­ГїГҐГ¬ Г§Г ГЇГ°Г®Г± ГЁ ГЇГ®Г«ГіГ·Г ГҐГ¬ ID Г­Г®ГўГ®ГЈГ® ГІГіГ°ГЁГ±ГІГ 
                     int testTouristId = (int)cmd.ExecuteScalar();
 
-                    // Переключаемся на вкладку "Путёвки" (TabPage[4])
+                    // ГЏГҐГ°ГҐГЄГ«ГѕГ·Г ГҐГ¬Г±Гї Г­Г  ГўГЄГ«Г Г¤ГЄГі "ГЏГіГІВёГўГЄГЁ" (TabPage[4])
                     tabControl1.SelectedIndex = 4;
 
-                    // Обновляем таблицы
+                    // ГЋГЎГ­Г®ГўГ«ГїГҐГ¬ ГІГ ГЎГ«ГЁГ¶Г»
                     loadTourists();
                     loadBookings();
 
-                    MessageBox.Show($"Триггер сработал успешно! Добавлены новый турист (id = {testTouristId}) и соответствующая путёвка.",
-                          "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show($"Г’Г°ГЁГЈГЈГҐГ° Г±Г°Г ГЎГ®ГІГ Г« ГіГ±ГЇГҐГёГ­Г®! Г„Г®ГЎГ ГўГ«ГҐГ­Г» Г­Г®ГўГ»Г© ГІГіГ°ГЁГ±ГІ (id = {testTouristId}) ГЁ Г±Г®Г®ГІГўГҐГІГ±ГІГўГіГѕГ№Г Гї ГЇГіГІВёГўГЄГ .",
+                          "Г“Г±ГЇГҐГµ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
             catch (Exception ex)
             {
-                MessageBox.Show("Ошибка при выполнении триггера: " + ex.Message,
-                              "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("ГЋГёГЁГЎГЄГ  ГЇГ°ГЁ ГўГ»ГЇГ®Г«Г­ГҐГ­ГЁГЁ ГІГ°ГЁГЈГЈГҐГ°Г : " + ex.Message,
+                              "ГЋГёГЁГЎГЄГ ", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
